@@ -2,19 +2,12 @@ $(function() {
 
     $('.tombolTambahData').on('click', function(){
         $('#formModalLabel').html("Tambah Data Mahasiswa");
-        $('.modal-footer button[type=submit]')
-            .html('Tambah Data')
-            .removeClass('btn-warning')
-            .addClass('btn-primary');
     });
 
     $('.tampilModalUbah').on('click', function(){
-
         $('#formModalLabel').html('Ubah Data Mahasiswa');
-        $('.modal-footer button[type=submit]')
-            .html('Ubah Data')
-            .removeClass('btn-primary')
-            .addClass('btn-warning');
+        $('.modal-footer button[type=submit]').html('Ubah Data')
+        $('.modal-body form').attr('action', 'http://localhost/php-nattive-mvc/public/mahasiswa/ubah');
 
         const id = $(this).data('id');
         
@@ -22,11 +15,14 @@ $(function() {
             url: 'http://localhost/php-nattive-mvc/public/mahasiswa/getubah',
             data: {id : id},
             method: 'post',
-            // dataType: 'json',
+            dataType: 'json',
             success: function(data){
-                console.log(data);
+                $('#nama').val(data.nama);
+                $('#nim').val(data.nim);
+                $('#email').val(data.email);
+                $('#jurusan').val(data.jurusan);
+                $('#id').val(data.id_mhs);
             }
         });
     });
-
 });
