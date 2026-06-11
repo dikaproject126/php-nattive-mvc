@@ -7,7 +7,7 @@
         <p class="card-text"><?= $data['mhs']['email']; ?></p>
         <p class="card-text"><?= $data['mhs']['jurusan']; ?></p>
 
-        <a href="<?= BASEURL; ?>/mahasiswa" class="card-link">Kembali</a>
+        <a href="<?= BASEURL; ?>/mahasiswa"><button class="btn btn-primary" type="submit">Kembali</button></a>
     </div>
     </div>
 
